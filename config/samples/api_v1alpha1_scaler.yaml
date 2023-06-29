@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/created-by: pod-scheduler-using-k8s-operator-crd-controller-go
   name: scaler-sample
 spec:
-  start: 5
-  end: 10
+  start: 3
+  end: 20
   replicas: 5
-  deployment:
-    - name: abc
+  deployments:
+    - name: nginx
       namespace: default
