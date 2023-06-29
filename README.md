@@ -7,4 +7,10 @@ go mod init github.com/soumyadip007/pod-scheduler-using-k8s-operator-crd-control
 
   operator-sdk create api --kind Scaler --group api --version v1alpha1                                                                            
 
-  
+  make manifests
+
+  kubectl apply -f config/crd/bases/api.soumyadip.k8s_scalers.yaml
+
+  kubectl get crd
+
+  kubectl create deploy nginx --image=nginx
