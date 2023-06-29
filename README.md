@@ -14,3 +14,5 @@ go mod init github.com/soumyadip007/pod-scheduler-using-k8s-operator-crd-control
   kubectl get crd
 
   kubectl create deploy nginx --image=nginx
+
+  kubectl delete deployment nginx
