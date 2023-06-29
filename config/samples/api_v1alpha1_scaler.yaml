@@ -11,7 +11,7 @@ metadata:
 spec:
   start: 3
   end: 20
-  replicas: 5
+  replicas: 10
   deployments:
     - name: nginx
       namespace: default
