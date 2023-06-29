@@ -20,35 +20,39 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
+const (
+	SUCCESS = "Success"
+	FAILED  = "Failed"
+)
 
 // ScalerSpec defines the desired state of Scaler
 type ScalerSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Scaler. Edit scaler_types.go to remove/update
-	Start       int              `json:"start"`
-	End         int              `json:"end"`
+	// +kubebuilder:validation:Maximum=23
+	// +kubebuilder:validation:Minimum=0
+	// +kubebuilder:validation:Required
+	Start int `json:"start"`
+
+	// +kubebuilder:validation:Maximum=23
+	// +kubebuilder:validation:Minimum=0
+	// +kubebuilder:validation:Required
+	End int `json:"end"`
+	// +kubebuilder:validation:Required
 	Replicas    int32            `json:"replicas"`
 	Deployments []NamespacedName `json:"deployments"`
 }
-
 type NamespacedName struct {
 	Name      string `json:"name"`
-	Namespace int `json:"namespace"`
+	Namespace string `json:"namespace"`
 }
-
-const (
-	SUCCESS = "Success"
-	FAILED  = "Failed"
-)
 
 // ScalerStatus defines the observed state of Scaler
 type ScalerStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	Status string `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
