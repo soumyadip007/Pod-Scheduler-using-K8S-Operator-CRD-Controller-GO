@@ -37,8 +37,13 @@ type ScalerSpec struct {
 
 type NamespacedName struct {
 	Name      string `json:"name"`
-	Namespace string `json:"namespace"`
+	Namespace int `json:"namespace"`
 }
+
+const (
+	SUCCESS = "Success"
+	FAILED  = "Failed"
+)
 
 // ScalerStatus defines the observed state of Scaler
 type ScalerStatus struct {
