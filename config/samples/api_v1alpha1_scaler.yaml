@@ -1,0 +1,17 @@
+apiVersion: api.soumyadip.k8s/v1alpha1
+kind: Scaler
+metadata:
+  labels:
+    app.kubernetes.io/name: scaler
+    app.kubernetes.io/instance: scaler-sample
+    app.kubernetes.io/part-of: pod-scheduler-using-k8s-operator-crd-controller-go
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: pod-scheduler-using-k8s-operator-crd-controller-go
+  name: scaler-sample
+spec:
+  start: 5
+  end: 10
+  replicas: 5
+  deployment:
+    - name: abc
+      namespace: default
